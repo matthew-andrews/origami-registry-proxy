@@ -9,7 +9,7 @@ app.use(function(req, res) {
 	fetch('http://registry.origami.ft.com'+req.path)
 		.then(function(response) {
 			res.status(response.status);
-			if (!res.ok) {
+			if (!response.ok) {
 				return response.text().then(function(err) {
 					res.send(err);
 				});
